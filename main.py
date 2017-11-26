@@ -26,8 +26,7 @@ def main():
     """
     Main function
     """
-    print "_____TABLETOP V1.0_____\nWelcome to tabletop! Your keyboard is now disabled."
-    print "(Press ESC to quit)\n"
+    print "_____TABLETOP V1.0_____\nWelcome to tabletop!\n"
 
     ## Detect keyboards
     devices_list = list()
@@ -45,13 +44,15 @@ def main():
         print " "
         quit_tabletop()
 
+
     # Grab keyboards
     for _fd in devices.keys():
         try:
             devices[_fd].grab()
-            print "Grabbed keyboard", devices[_fd].name
+            print "Disabled keyboard", devices[_fd].name
         except IOError:
             print "Already grabbed."
+    print "(Press ESC to quit)"
 
     ## Main loop
     quitting_state = False
